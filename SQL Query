@@ -1,0 +1,13 @@
+1) select * from Employers inner join Manager
+on Employers.manager_id = Manager.id
+where Employers.salary > Manager.salary_manager
+;
+
+
+2) select one.name, one.department_id, one.salary, two.avg_salary from Employers as one inner join 
+(select department_id, avg(salary) as avg_salary from Employers
+group by department_id) as two
+on one.department_id = two.department_id
+where one.salary > two.avg_salary
+;
+
